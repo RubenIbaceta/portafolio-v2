@@ -1,0 +1,409 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Rubén Ibaceta | Portfolio">
+  <div class="min-h-screen bg-black text-white p-4 md:p-8 font-sans selection:bg-neutral-800">
+    <main class="max-w-[1400px] w-full mx-auto">
+
+      <!-- Botón de Idioma (Arriba a la Derecha) -->
+      <div class="flex justify-end mb-4">
+        <button 
+          id="lang-toggle" 
+          class="flex items-center gap-2 px-3 py-1.5 border border-neutral-800 rounded-xl bg-neutral-900/60 hover:bg-neutral-800 text-xs font-mono transition-all hover:border-neutral-700 cursor-pointer"
+        >
+          <img id="lang-flag" src="https://flagcdn.com/w40/us.png" class="w-4 h-3 object-cover rounded-sm" alt="US Flag" />
+          <span id="lang-text" class="text-neutral-300">EN</span>
+        </button>
+      </div>
+
+      <!-- Contenedor Grid con items-stretch para igualar la altura de ambas cajas -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-8 items-stretch">
+
+        <!-- ========================================== -->
+        <!-- COLUMNA IZQUIERDA: PERFIL Y CONTACTO       -->
+        <!-- ========================================== -->
+        <aside class="flex flex-col h-full">
+          <div class="border border-neutral-800 rounded-2xl p-6 md:p-8 bg-black flex flex-col justify-between h-full">
+            
+            <!-- Bloque Superior de Contenido -->
+            <div class="space-y-6">
+              
+              <!-- Indicador de Disponibilidad -->
+              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/50 text-[11px] font-mono text-emerald-400">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span data-es="Disponible para trabajar" data-en="Open to work">Open to work</span>
+              </div>
+
+              <!-- Perfil con Avatar y Máquina de Escribir -->
+              <div class="flex items-center gap-4">
+                <div class="relative group">
+                  <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-rose-500 to-red-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+                  <img 
+                    src="/icono.jpg" 
+                    alt="Rubén Ibaceta Cortés" 
+                    class="relative w-16 h-16 rounded-xl object-cover border border-red-500/60 shadow-lg shadow-red-900/40"
+                  />
+                </div>
+
+                <div>
+                  <h1 class="text-xl font-bold tracking-tight">Rubén Ibaceta</h1>
+                  <p class="text-sm text-neutral-400 font-mono flex items-center h-6">
+                    <span id="typewriter"></span><span class="animate-ping text-red-500 font-bold ml-0.5">|</span>
+                  </p>
+                  <p class="text-xs text-neutral-500 mt-0.5">Valparaíso, Chile</p>
+                </div>
+              </div>
+
+              <!-- Descripción -->
+              <p class="text-sm text-neutral-300 leading-relaxed text-pretty" data-es="Estudiante de Ingeniería en Informática enfocado en desarrollo Backend. Especializado en diseñar arquitecturas robustas con Node.js, Express y Django, e integrar servicios de procesamiento y almacenamiento Cloud en AWS." data-en="Computer Engineering student focused on backend development. Specialized in designing robust architectures with Node.js, Express, and Django, and integrating AWS cloud compute and storage services.">
+                Computer Engineering student focused on backend development. Specialized in designing robust architectures with Node.js, Express, and Django, and integrating AWS cloud compute and storage services.
+              </p>
+
+              <!-- Botones de Redes & Formulario de Contacto -->
+              <div class="space-y-3">
+                <p class="text-xs font-mono text-white uppercase tracking-wider" data-es="// Contacto & Redes" data-en="// Contact & Socials">// Contact & Socials</p>
+                
+                <div class="grid grid-cols-1 gap-2.5">
+                  <!-- LinkedIn -->
+                  <a 
+                    href="https://linkedin.com/in/rubenibacetacortes" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="flex items-center justify-between p-3 border border-neutral-800 rounded-xl bg-neutral-900/40 hover:bg-neutral-800 hover:border-neutral-700 transition-all group"
+                  >
+                    <div class="flex items-center gap-3">
+                      <img src="https://svgl.app/library/linkedin.svg" class="w-4 h-4" alt="LinkedIn" />
+                      <span class="text-xs font-mono text-neutral-300 group-hover:text-white transition-colors">LinkedIn</span>
+                    </div>
+                    <span class="text-xs text-neutral-600 group-hover:text-neutral-400 font-mono" data-es="perfil ↗" data-en="profile ↗">profile ↗</span>
+                  </a>
+
+                  <!-- GitHub -->
+                  <a 
+                    href="https://github.com/rubenibaceta" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="flex items-center justify-between p-3 border border-neutral-800 rounded-xl bg-neutral-900/40 hover:bg-neutral-800 hover:border-neutral-700 transition-all group"
+                  >
+                    <div class="flex items-center gap-3">
+                      <img src="https://cdn.simpleicons.org/github/FFFFFF" class="w-4 h-4" alt="GitHub" />
+                      <span class="text-xs font-mono text-neutral-300 group-hover:text-white transition-colors">GitHub</span>
+                    </div>
+                    <span class="text-xs text-neutral-600 group-hover:text-neutral-400 font-mono" data-es="código ↗" data-en="code ↗">code ↗</span>
+                  </a>
+                </div>
+
+                <!-- Formulario Web3Forms -->
+                <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-2.5 pt-2">
+                  <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI" />
+                  
+                  <input 
+                    type="email" 
+                    name="email" 
+                    required 
+                    placeholder="your-email@example.com"
+                    data-es-ph="tu-correo@ejemplo.com"
+                    data-en-ph="your-email@example.com"
+                    class="w-full px-3 py-2 bg-neutral-900/60 border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-600 font-mono transition-colors"
+                  />
+                  
+                  <textarea 
+                    name="message" 
+                    required 
+                    rows="3" 
+                    placeholder="Write your message..."
+                    data-es-ph="Escribe tu mensaje..."
+                    data-en-ph="Write your message..."
+                    class="w-full px-3 py-2 bg-neutral-900/60 border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-600 font-mono resize-none transition-colors"
+                  ></textarea>
+
+                  <button 
+                    type="submit" 
+                    class="w-full py-2 bg-neutral-100 hover:bg-white text-black text-xs font-mono font-bold rounded-xl transition-all cursor-pointer active:scale-95"
+                    data-es="Enviar Mensaje 🚀"
+                    data-en="Send Message 🚀"
+                  >
+                    Send Message 🚀
+                  </button>
+                </form>
+
+              </div>
+
+            </div>
+
+            <!-- Footer Integrado (Fijo en la parte inferior) -->
+            <div class="pt-6 mt-6 border-t border-neutral-800/60 text-center">
+              <p class="text-[11px] font-mono text-neutral-600">
+                © 2026 Rubén Ibaceta<br/>
+                <span class="text-[10px] text-neutral-700" data-es="Construido con Astro & Tailwind" data-en="Built with Astro & Tailwind">Built with Astro & Tailwind</span>
+              </p>
+            </div>
+
+          </div>
+        </aside>
+
+        <!-- ========================================== -->
+        <!-- COLUMNA DERECHA: PESTAÑAS                  -->
+        <!-- ========================================== -->
+        <section class="border border-neutral-800 rounded-2xl bg-black overflow-hidden flex flex-col h-full">
+          
+          <!-- Pestañas de Navegación -->
+          <div class="flex border-b border-neutral-800 bg-black/50 text-xs font-mono overflow-x-auto">
+            <button data-tab="sobre-mi" class="tab-btn px-6 py-3.5 border-r border-neutral-800 text-white bg-neutral-900/50 flex items-center gap-2 hover:bg-neutral-900 transition-colors whitespace-nowrap" data-es="sobre_mi.md" data-en="about_me.md">
+              about_me.md
+            </button>
+            <button data-tab="proyectos" class="tab-btn px-6 py-3.5 border-r border-neutral-800 text-neutral-500 flex items-center gap-2 hover:bg-neutral-900 hover:text-white transition-colors whitespace-nowrap" data-es="proyectos.ts" data-en="projects.ts">
+              projects.ts
+            </button>
+          </div>
+
+          <!-- Contenedor principal de contenido -->
+          <div class="p-6 md:p-8 flex flex-col gap-8 flex-1">
+            
+            <!-- PESTAÑA 1: SOBRE MÍ -->
+            <div id="sobre-mi" class="tab-content block space-y-8">
+              
+              <!-- Experiencia -->
+              <div>
+                <h2 class="text-sm font-mono text-neutral-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span class="text-white">//</span> <span data-es="Experiencia Profesional" data-en="Work Experience">Work Experience</span>
+                </h2>
+                <div class="space-y-4">
+                  <div class="border border-neutral-800 rounded-xl p-4 md:p-5 hover:border-neutral-600 transition-colors">
+                    <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
+                      <div>
+                        <h3 class="text-base font-bold text-white" data-es="Soporte Técnico — INACAP" data-en="IT Support Specialist — INACAP">IT Support Specialist — INACAP</h3>
+                        <p class="text-xs text-neutral-400 font-mono" data-es="Práctica Profesional" data-en="Professional Internship">Professional Internship</p>
+                      </div>
+                      <span class="text-xs font-mono text-neutral-500 bg-neutral-900 border border-neutral-800 px-2.5 py-1 rounded">Mar 2025 - Jun 2025</span>
+                    </div>
+                    <ul class="text-xs md:text-sm text-neutral-300 space-y-1.5 list-none pl-0">
+                      <li class="flex gap-2"><span class="text-neutral-600">›</span> <span data-es="Soporte integral a 50+ usuarios con reducción del 20% en tiempos de resolución" data-en="Provided comprehensive IT support for 50+ users, reducing resolution time by 20%">Provided comprehensive IT support for 50+ users, reducing resolution time by 20%</span></li>
+                      <li class="flex gap-2"><span class="text-neutral-600">›</span> <span data-es="Mantenimiento y configuración de Windows/Linux en 30+ estaciones de trabajo" data-en="Maintained and configured Windows/Linux systems across 30+ workstations">Maintained and configured Windows/Linux systems across 30+ workstations</span></li>
+                      <li class="flex gap-2"><span class="text-neutral-600">›</span> <span data-es="Diagnóstico, reparación de hardware y mantenimiento preventivo" data-en="Performed hardware diagnostics, component repairs, and preventive maintenance">Performed hardware diagnostics, component repairs, and preventive maintenance</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Educación -->
+              <div>
+                <h2 class="text-sm font-mono text-neutral-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span class="text-white">//</span> <span data-es="Educación" data-en="Education">Education</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="border border-neutral-800 rounded-xl p-4 border-l-2 border-l-white bg-neutral-900/30">
+                    <h3 class="text-sm font-bold text-white" data-es="Ingeniería en Informática" data-en="B.S. in Computer Software Engineering">B.S. in Computer Software Engineering</h3>
+                    <p class="text-xs text-neutral-400 mt-0.5">INACAP | Valparaíso</p>
+                    <span class="inline-block text-[10px] font-mono text-neutral-400 bg-neutral-800 px-2 py-0.5 rounded mt-2" data-es="Mar 2026 - Actualidad" data-en="Mar 2026 - Present">Mar 2026 - Present</span>
+                  </div>
+                  <div class="border border-neutral-800 rounded-xl p-4">
+                    <h3 class="text-sm font-bold text-neutral-200" data-es="Técnico Analista Programador" data-en="Associate Degree in Systems Analysis & Development">Associate Degree in Systems Analysis & Development</h3>
+                    <p class="text-xs text-neutral-400 mt-0.5">CFT INACAP | Valparaíso</p>
+                    <span class="inline-block text-[10px] font-mono text-neutral-500 bg-neutral-900 px-2 py-0.5 rounded mt-2" data-es="Graduado: Jun 2025" data-en="Graduated: Jun 2025">Graduated: Jun 2025</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Habilidades Técnicas -->
+              <div>
+                <h2 class="text-sm font-mono text-neutral-400 uppercase tracking-wider mb-4 flex items-center gap-2">
+                  <span class="text-white">//</span> <span data-es="Habilidades Técnicas" data-en="Technical Skills">Technical Skills</span>
+                </h2>
+                
+                <div class="space-y-4">
+                  <!-- Backend -->
+                  <div>
+                    <p class="text-xs text-neutral-500 font-mono mb-2" data-es="Backend & Bases de Datos:" data-en="Backend & Databases:">Backend & Databases:</p>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/python/3776AB" class="w-4 h-4" alt="Python" /> Python</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" class="w-4 h-4" alt="Node.js" /> Node.js</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/express/FFFFFF" class="w-4 h-4" alt="Express.js" /> Express.js</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/django/2BA977" class="w-4 h-4" alt="Django" /> Django</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/postgresql/4169E1" class="w-4 h-4" alt="PostgreSQL" /> PostgreSQL</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/mysql/4479A1" class="w-4 h-4" alt="MySQL" /> MySQL</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/mongodb/47A248" class="w-4 h-4" alt="MongoDB" /> MongoDB</span>
+                    </div>
+                  </div>
+
+                  <!-- Frontend -->
+                  <div>
+                    <p class="text-xs text-neutral-500 font-mono mb-2">Frontend:</p>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/react/61DAFB" class="w-4 h-4" alt="React" /> React</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="w-4 h-4 rounded-sm" alt="JavaScript" /> JavaScript</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/typescript/3178C6" class="w-4 h-4 rounded-sm" alt="TypeScript" /> TypeScript</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="w-4 h-4" alt="Tailwind CSS" /> Tailwind CSS</span>
+                    </div>
+                  </div>
+
+                  <!-- Cloud & Tools -->
+                  <div>
+                    <p class="text-xs text-neutral-500 font-mono mb-2" data-es="Sistemas & Cloud:" data-en="Systems & Cloud:">Systems & Cloud:</p>
+                    <div class="flex flex-wrap gap-2">
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2">
+                        <svg class="h-3.5 w-auto" viewBox="0 0 304 182" xml:space="preserve"><path fill="#ffffff" d="m86 66 2 9c0 3 1 5 3 8v2l-1 3-7 4-2 1-3-1-4-5-3-6c-8 9-18 14-29 14-9 0-16-3-20-8-5-4-8-11-8-19s3-15 9-20c6-6 14-8 25-8a79 79 0 0 1 22 3v-7c0-8-2-13-5-16-3-4-8-5-16-5l-11 1a80 80 0 0 0-14 5h-2c-1 0-2-1-2-3v-5l1-3c0-1 1-2 3-2l12-5 16-2c12 0 20 3 26 8 5 6 8 14 8 25v32zM46 82l10-2c4-1 7-4 10-7l3-6 1-9v-4a84 84 0 0 0-19-2c-6 0-11 1-15 4-3 2-4 6-4 11s1 8 3 11c3 2 6 4 11 4zm80 10-4-1-2-3-23-78-1-4 2-2h10l4 1 2 4 17 66 15-66 2-4 4-1h8l4 1 2 4 16 67 17-67 2-4 4-1h9c2 0 3 1 3 2v2l-1 2-24 78-2 4-4 1h-9l-4-1-1-4-16-65-15 64-2 4-4 1h-9zm129 3a66 66 0 0 1-27-6l-3-3-1-2v-5c0-2 1-3 2-3h2l3 1a54 54 0 0 0 23 5c6 0 11-2 14-4 4-2 5-5 5-9l-2-7-10-5-15-5c-7-2-13-6-16-10a24 24 0 0 1 5-34l10-5a44 44 0 0 1 20-2 110 110 0 0 1 12 3l4 2 3 2 1 4v4c0 3-1 4-2 4l-4-2c-6-2-12-3-19-3-6 0-11 0-14 2s-4 5-4 9c0 3 1 5 3 7s5 4 11 6l14 4c7 3 12 6 15 10s5 9 5 14l-3 12-7 8c-3 3-7 5-11 6l-14 2z"/><path fill="#f90" d="M274 144A220 220 0 0 1 4 124c-4-3-1-6 2-4a300 300 0 0 0 263 16c5-2 10 4 5 8z"/><path fill="#f90" d="M287 128c-4-5-28-3-38-1-4 0-4-3-1-5 19-13 50-9 53-5 4 5-1 36-18 51-3 2-6 1-5-2 5-10 13-33 9-38z"/></svg>
+                        <span>AWS (EC2)</span>
+                      </span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/linux/FCC624" class="w-4 h-4" alt="Linux" /> Linux</span>
+                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/git/F05032" class="w-4 h-4" alt="Git" /> Git / GitHub</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <!-- PESTAÑA 2: PROYECTOS -->
+            <div id="proyectos" class="tab-content hidden space-y-6">
+              
+              <div class="border border-neutral-800 rounded-xl p-6 bg-neutral-900/20 hover:border-neutral-600 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] transition-all duration-300">
+                <div class="flex justify-between items-start mb-3">
+                  <h3 class="text-lg font-bold text-white" data-es="Plataforma E-commerce Full-Stack" data-en="Full-Stack E-commerce Platform">Full-Stack E-commerce Platform</h3>
+                  <span class="text-xs font-mono bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded">AWS Cloud</span>
+                </div>
+                <p class="text-sm text-neutral-300 mb-4" data-es="Plataforma de comercio electrónico con autenticación de usuarios, gestión de pedidos e integración de pagos con PayPal. Desplegado en AWS EC2 con Git." data-en="E-commerce platform featuring user authentication, order management, and PayPal payment integration. Deployed on AWS EC2 with Git.">
+                  E-commerce platform featuring user authentication, order management, and PayPal payment integration. Deployed on AWS EC2 with Git.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/python/3776AB" class="w-3.5 h-3.5" /> Python</span>
+                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/django/2BA977" class="w-3.5 h-3.5" /> Django</span>
+                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/mysql/4479A1" class="w-3.5 h-3.5" /> MySQL</span>
+                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" class="w-3.5 h-3.5" /> Bootstrap</span>
+                </div>
+              </div>
+
+              <!-- Card proyectos futuros -->
+              <div class="border border-neutral-800 border-dashed rounded-xl p-8 text-center">
+                <p class="text-neutral-400 font-mono text-sm mb-1" data-es="⚡ Próximos proyectos" data-en="⚡ Upcoming projects">⚡ Upcoming projects</p>
+                <p class="text-xs text-neutral-600" data-es="Construyendo nuevas aplicaciones en Node.js, Express y React..." data-en="Building new applications with Node.js, Express, and React...">Building new applications with Node.js, Express, and React...</p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</Layout>
+
+<script is:inline>
+  // Detectar idioma del navegador
+  const browserLang = navigator.language || navigator.userLanguage;
+  let currentLang = browserLang.startsWith('es') ? 'es' : 'en';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- LÓGICA DE IDIOMA ---
+    const langBtn = document.getElementById('lang-toggle');
+    const langFlag = document.getElementById('lang-flag');
+    const langText = document.getElementById('lang-text');
+
+    const flags = {
+      es: { url: 'https://flagcdn.com/w40/es.png', alt: 'Spain Flag', label: 'ES' },
+      en: { url: 'https://flagcdn.com/w40/us.png', alt: 'US Flag', label: 'EN' }
+    };
+
+    function updateLanguage(lang) {
+      if (langFlag) {
+        langFlag.src = flags[lang].url;
+        langFlag.alt = flags[lang].alt;
+      }
+      if (langText) {
+        langText.textContent = flags[lang].label;
+      }
+
+      // Traducir textos
+      document.querySelectorAll('[data-es][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${lang}`);
+      });
+
+      // Traducir placeholders
+      document.querySelectorAll('[data-es-ph][data-en-ph]').forEach(el => {
+        el.placeholder = el.getAttribute(`data-${lang}-ph`);
+      });
+    }
+
+    if (currentLang === 'es') {
+      updateLanguage('es');
+    }
+
+    langBtn?.addEventListener('click', () => {
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      updateLanguage(currentLang);
+    });
+
+    // --- LÓGICA DE PESTAÑAS ---
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => {
+          b.classList.remove('text-white', 'bg-neutral-900/50');
+          b.classList.add('text-neutral-500');
+        });
+
+        tabContents.forEach(c => {
+          c.classList.remove('block');
+          c.classList.add('hidden');
+        });
+
+        btn.classList.remove('text-neutral-500');
+        btn.classList.add('text-white', 'bg-neutral-900/50');
+
+        const targetId = btn.getAttribute('data-tab');
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.classList.remove('hidden');
+          targetContent.classList.add('block');
+        }
+      });
+    });
+
+    // --- LÓGICA MÁQUINA DE ESCRIBIR ---
+    const wordsEN = ["Systems Analyst", "Backend Developer", "Software Engineer"];
+    const wordsES = ["Analista Programador", "Desarrollador Backend", "Ingeniero en Informática"];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const typewriterEl = document.getElementById('typewriter');
+      if (!typewriterEl) return;
+
+      const currentWords = currentLang === 'es' ? wordsES : wordsEN;
+      const currentWord = currentWords[wordIndex % currentWords.length];
+
+      if (isDeleting) {
+        typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 40 : 80;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex++;
+        typeSpeed = 400;
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+
+    type();
+  });
+</script>

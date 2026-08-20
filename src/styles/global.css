@@ -1,0 +1,20 @@
+/* Importamos Roboto Mono desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Aplicamos Roboto Mono a todo el portafolio */
+@theme {
+  --font-sans: 'Roboto Mono', monospace;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+/* 
+  Como Roboto Mono tiene proporciones normales (no como las pixeladas),
+  volvemos al tamaño estándar (16px) para que se vea súper fino y elegante.
+*/
+html {
+  font-size: 16px; 
+}
