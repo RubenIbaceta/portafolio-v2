@@ -1,46 +1,27 @@
-# Astro Starter Kit: Basics
+# Dev Portfolio — Rubén Ibaceta
 
-```sh
-npm create astro@latest -- --template basics
-```
+Un portafolio web bilingüe y ultrarrápido con estética simple.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**Demo en vivo:** [portafolio-v1-mu.vercel.app](https://portafolio-v1-mu.vercel.app/)
 
-## 🚀 Project Structure
+## Tecnologías Utilizadas
 
-Inside of your Astro project, you'll see the following folders and files:
+* **Framework:** [Astro](https://astro.build/)
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+* **Lenguaje:** JavaScript / HTML5 / CSS3
+* **Servicios & Deploy:** [Vercel](https://vercel.com/) + [Web3Forms](https://web3forms.com/)
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+---
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Características Principales
 
-## 🧞 Commands
+* **Carga Ultra Rápida:** Arquitectura de contenido estático (SSG) generada por Astro sin sobrecarga de JavaScript.
+* **Soporte Bilingüe (ES/EN):** Sistema dinámico de cambio de idioma en tiempo real para todos los textos, títulos y placeholders del sitio.
+* **Diseño:** Interfaz limpia organizada con sistema de pestañas interactivas (`about_me.md`, `projects.ts`).
+* **Formulario de Contacto:** Integración directa a correo electrónico con web3form.
+* **Layout Totalmente Adaptable:** Diseño 100% *Responsive* con soporte para dispositivos móviles, tablets y desktop.
 
-All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Créditos e Inspiración
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+El diseño base y la estructura visual de este proyecto están inspirados en la plantilla **Astro Developer Portfolio Template** creada por **devi|dev|io**, sobre la cual se implementaron personalizaciones de estilos, lógica de traducción bilingüe.
