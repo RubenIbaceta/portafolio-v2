@@ -253,3 +253,16 @@ h1, h2, h3 { font-family: var(--display); }
   .typing-caret { display: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Tarjetas añadidas a la sección de proyectos. */
+#proyectos .added-project { margin-top: 28px; }
+#proyecto-pulso .pulso-cover { background: linear-gradient(145deg, #101e34, #304d80); }
+#proyectos .added-project .cover-brand { color: #f4f6fa; }
+#proyecto-pulso .pulso-preview { position: relative; margin-top: 35px; padding: 22px; border: 1px solid #ffffff25; border-radius: 12px; background: #0c182d70; }
+#proyecto-pulso .pulso-preview-heading { display: flex; align-items: center; gap: 8px; color: #bfcee6; font-size: 11px; }
+#proyecto-pulso .pulso-signal { width: 6px; height: 6px; border-radius: 50%; background: #9bbafa; }
+#proyecto-pulso .pulso-bubble { max-width: 90%; width: fit-content; margin-top: 24px; padding: 14px 17px; border-radius: 12px 12px 12px 3px; background: #f4f6fa; color: #233b62; font-size: 13px; line-height: 1.6; }
+#proyecto-pulso .pulso-bubble-reply { margin-top: 14px; margin-left: auto; border-radius: 12px 12px 3px 12px; background: #6687bf; color: #fff; }
+#proyecto-pulso .pulso-preview-footer { margin-top: 28px; color: #bfcee6; font-size: 9px; letter-spacing: .06em; }
+#proyecto-forja-oscura .project-cover img { object-position: center; }
+#proyecto-forja-oscura .project-cover::after { background: linear-gradient(180deg, #08060580, #08060520 50%, #08060590); }
