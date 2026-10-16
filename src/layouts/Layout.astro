@@ -9,17 +9,18 @@ interface Props {
 
 const { 
   title, 
-  description = "Portafolio profesional de Rubén Ibaceta, Ingeniero en Informática enfocado en Desarrollo Backend, Node.js, Express, Django y Cloud AWS.",
-  image = "/og-image.jpg"
+  description = "Rubén Ibaceta, Analista Programador y estudiante de Ingeniería en Informática. Desarrollo backend y full stack con Node.js, React, Python y PostgreSQL. Explora ElectroStore y mi trabajo.",
+  image = "/og-image.svg"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://rubenibaceta.dev');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'http://localhost:4321');
 ---
 <!doctype html>
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d0e11" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
@@ -31,19 +32,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://rubeniba
 
     <!-- Open Graph (LinkedIn / WhatsApp / Facebook) -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:image" content={new URL(image, canonicalURL)} />
 
     <!-- Twitter Cards -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    <meta property="twitter:image" content={new URL(image, canonicalURL)} />
   </head>
-  <body class="bg-black text-white font-sans antialiased">
+  <body>
     <slot />
   </body>
 </html>

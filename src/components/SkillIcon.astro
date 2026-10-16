@@ -1,0 +1,26 @@
+---
+import {
+  siNodedotjs, siExpress, siPython, siDjango, siReact, siTypescript,
+  siJavascript, siAstro, siTailwindcss, siPostgresql, siPrisma,
+  siMysql, siMongodb, siRender, siNeon, siDocker, siLinux, siGit,
+} from 'simple-icons';
+
+interface Props { name: string; }
+const { name } = Astro.props;
+const icons: Record<string, { path: string; hex: string }> = {
+  'Node.js': siNodedotjs, Express: siExpress, Python: siPython, Django: siDjango,
+  React: siReact, TypeScript: siTypescript, JavaScript: siJavascript, Astro: siAstro,
+  'Tailwind CSS': siTailwindcss, PostgreSQL: siPostgresql, Prisma: siPrisma,
+  MySQL: siMysql, MongoDB: siMongodb, Render: siRender, Neon: siNeon,
+  Docker: siDocker, Linux: siLinux, 'Git / GitHub': siGit,
+};
+const icon = icons[name];
+const darkThemeColors: Record<string, string> = {
+  Express: 'D5D5DD', Django: '65BB95', Astro: 'EB7FA4', Prisma: 'A5C7D0',
+  PostgreSQL: '7FADD2', MySQL: '6AAED0', Render: 'D5D5DD',
+};
+const color = `#${darkThemeColors[name] ?? icon?.hex ?? 'FF9900'}`;
+---
+<svg class="skill-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" style={`color: ${color}`}>
+  {icon ? <path fill="currentColor" d={icon.path} /> : <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18H6a4 4 0 0 1-.6-8 7 7 0 0 1 13-1A4.5 4.5 0 0 1 18 18h-1" /><path d="m9 16 3-3 3 3m-3-3v8" /></g>}
+</svg>

@@ -1,409 +1,229 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import SkillIcon from '../components/SkillIcon.astro';
+
+const stack = [
+  { label: 'Backend', items: ['Node.js', 'Express', 'Python', 'Django'] },
+  { label: 'Frontend', items: ['React', 'TypeScript', 'JavaScript', 'Astro', 'Tailwind CSS'] },
+  { label: 'Datos / Data', items: ['PostgreSQL', 'Prisma', 'MySQL', 'MongoDB'] },
+  { label: 'Cloud & tools', items: ['AWS EC2', 'Render', 'Neon', 'Docker', 'Linux', 'Git / GitHub'] },
+];
+const projectStack = ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma'];
+const contactKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || '6cc73517-280f-4980-8d80-682ee0bd43b0';
 ---
 
-<Layout title="Rubén Ibaceta | Portfolio">
-  <div class="min-h-screen bg-black text-white p-4 md:p-8 font-sans selection:bg-neutral-800">
-    <main class="max-w-[1400px] w-full mx-auto">
+<Layout title="Rubén Ibaceta | Desarrollo Backend & Full Stack">
+  <a class="skip-link" href="#main-content" data-es="Saltar al contenido" data-en="Skip to content">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="#inicio" aria-label="Rubén Ibaceta, inicio">ri<span>.</span></a>
+      <nav class="main-nav" aria-label="Navegación principal" data-es-label="Navegación principal" data-en-label="Main navigation">
+        <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+        <a href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a>
+        <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" data-language="es" aria-pressed="true" aria-label="Español">ES</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button>
+      </div>
+    </div>
+  </header>
 
-      <!-- Botón de Idioma (Arriba a la Derecha) -->
-      <div class="flex justify-end mb-4">
-        <button 
-          id="lang-toggle" 
-          class="flex items-center gap-2 px-3 py-1.5 border border-neutral-800 rounded-xl bg-neutral-900/60 hover:bg-neutral-800 text-xs font-mono transition-all hover:border-neutral-700 cursor-pointer"
-        >
-          <img id="lang-flag" src="https://flagcdn.com/w40/us.png" class="w-4 h-3 object-cover rounded-sm" alt="US Flag" />
-          <span id="lang-text" class="text-neutral-300">EN</span>
-        </button>
+  <main id="main-content">
+    <section class="shell hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-es="Disponible para trabajar" data-en="Open to work">Disponible para trabajar</span></p>
+        <p class="hero-greeting"><span class="visually-hidden" data-es="Hola, soy" data-en="Hi, I'm">Hola, soy</span><span id="typed-greeting" aria-hidden="true">Hola, soy</span></p>
+        <h1 id="hero-title"><span class="visually-hidden">Rubén Ibaceta</span><span aria-hidden="true"><span id="typed-first-name">Rubén</span><br /><span id="typed-last-name">Ibaceta</span><span class="accent">.</span></span></h1>
+        <p class="hero-role"><span class="visually-hidden" data-es="Desarrollador backend, Analista Programador y estudiante de Ingeniería en Informática." data-en="Backend developer, Systems Analyst, and Computer Engineering student.">Desarrollador backend, Analista Programador y estudiante de Ingeniería en Informática.</span><span id="typed-role" aria-hidden="true">Desarrollador backend</span><span class="typing-caret" aria-hidden="true">|</span></p>
+        <p class="hero-intro" data-es="De la lógica del servidor a una aplicación que puedes usar. Desarrollo con Node.js, Python y bases de datos, conectando cada pieza con propósito." data-en="From server-side logic to an application you can use. I build with Node.js, Python, and databases, connecting every piece with purpose.">De la lógica del servidor a una aplicación que puedes usar. Desarrollo con Node.js, Python y bases de datos, conectando cada pieza con propósito.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyectos"><span data-es="Explorar mi trabajo" data-en="Explore my work">Explorar mi trabajo</span><Icon name="arrow-down" /></a>
+          <a class="text-link" href="https://github.com/RubenIbaceta" target="_blank" rel="noopener noreferrer"><Icon name="github" /><span>GitHub</span><Icon name="external" /></a>
+        </div>
+        <p class="hero-location"><span class="location-mark" aria-hidden="true">↳</span> Valparaíso, Chile <span aria-hidden="true">·</span> <span data-es="Estudiante de Ingeniería en Informática" data-en="Computer Engineering student">Estudiante de Ingeniería en Informática</span></p>
       </div>
 
-      <!-- Contenedor Grid con items-stretch para igualar la altura de ambas cajas -->
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-8 items-stretch">
+      <aside class="hero-system" aria-label="Mi enfoque de desarrollo" data-es-label="Mi enfoque de desarrollo" data-en-label="My development approach">
+        <div class="system-top"><span class="mono">behind_the_interface</span><Icon name="terminal" /></div>
+        <div class="system-content">
+          <span class="system-index mono">01 / 03</span>
+          <p class="system-title" data-es="Cada pieza cuenta." data-en="Every piece matters.">Cada pieza cuenta.</p>
+          <div class="system-step"><span class="system-node"><Icon name="code" /></span><div><span class="mono">Client</span><p>React · TypeScript</p></div><span class="step-label mono">UI</span></div>
+          <div class="system-connector"><span></span><small class="mono">HTTP / JSON</small></div>
+          <div class="system-step system-step-active"><span class="system-node"><Icon name="terminal" /></span><div><span class="mono">Server</span><p>Node.js · Express</p></div><span class="step-label mono">API</span></div>
+          <div class="system-connector"><span></span><small class="mono">Prisma ORM</small></div>
+          <div class="system-step"><span class="system-node"><Icon name="database" /></span><div><span class="mono">Database</span><p>PostgreSQL · Neon</p></div><span class="step-label mono">SQL</span></div>
+        </div>
+        <div class="system-bottom"><span class="status-dot" aria-hidden="true"></span><span class="mono" data-es="Así está construido ElectroStore" data-en="The architecture behind ElectroStore">Así está construido ElectroStore</span></div>
+      </aside>
+    </section>
 
-        <!-- ========================================== -->
-        <!-- COLUMNA IZQUIERDA: PERFIL Y CONTACTO       -->
-        <!-- ========================================== -->
-        <aside class="flex flex-col h-full">
-          <div class="border border-neutral-800 rounded-2xl p-6 md:p-8 bg-black flex flex-col justify-between h-full">
-            
-            <!-- Bloque Superior de Contenido -->
-            <div class="space-y-6">
-              
-              <!-- Indicador de Disponibilidad -->
-              <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/50 text-[11px] font-mono text-emerald-400">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span data-es="Disponible para trabajar" data-en="Open to work">Open to work</span>
-              </div>
+    <section class="shell section-block" id="proyectos" aria-labelledby="projects-title">
+      <div class="section-heading"><div><p class="section-number mono" data-es="01 — Trabajo seleccionado" data-en="01 — Selected work">01 — Trabajo seleccionado</p><h2 id="projects-title" data-es="Del código a la experiencia." data-en="From code to experience.">Del código a la experiencia.</h2></div><span class="section-aside mono">2026</span></div>
+      <article class="featured-project">
+        <a class="project-cover" href="https://electrostore-bpvc.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Abrir ElectroStore en una nueva pestaña" data-es-label="Abrir ElectroStore en una nueva pestaña" data-en-label="Open ElectroStore in a new tab">
+          <div class="cover-top"><span class="mono">PROJECT / 001</span><span class="live-pill"><span class="status-dot" aria-hidden="true"></span><span data-es="Demo publicada" data-en="Live demo">Demo publicada</span></span></div>
+          <div class="cover-brand">Electro<span>Store</span><span class="cover-dot">.</span></div>
+          <img src="/electrostore-cover.jpg" alt="Equipos, componentes y periféricos del proyecto ElectroStore" data-es-alt="Equipos, componentes y periféricos del proyecto ElectroStore" data-en-alt="Computers, components, and peripherals from the ElectroStore project" width="1586" height="672" loading="lazy" />
+          <div class="cover-bottom"><span class="mono">FULL STACK E-COMMERCE</span><span class="cover-open"><Icon name="external" /></span></div>
+        </a>
+        <div class="project-copy">
+          <p class="eyebrow project-kind" data-es="Aplicación web · Proyecto personal" data-en="Web application · Personal project">Aplicación web · Proyecto personal</p>
+          <h3>ElectroStore</h3>
+          <p class="project-description" data-es="Una tienda de tecnología de principio a fin: catálogo, carrito, pagos y administración. Construida para conectar la experiencia de compra con la lógica de negocio y la gestión del inventario." data-en="An end-to-end technology store: catalog, cart, payments, and administration. Built to connect the shopping experience with business logic and inventory management.">Una tienda de tecnología de principio a fin: catálogo, carrito, pagos y administración. Construida para conectar la experiencia de compra con la lógica de negocio y la gestión del inventario.</p>
+          <ul class="project-highlights">
+            <li><span aria-hidden="true">↗</span><span data-es="Cuentas de usuario, sesiones y direcciones de envío." data-en="User accounts, sessions, and shipping addresses.">Cuentas de usuario, sesiones y direcciones de envío.</span></li>
+            <li><span aria-hidden="true">↗</span><span data-es="Webpay en integración, pedidos y reserva de stock." data-en="Webpay integration environment, orders, and stock reservations.">Webpay en integración, pedidos y reserva de stock.</span></li>
+            <li><span aria-hidden="true">↗</span><span data-es="Panel administrativo con ventas, usuarios y devoluciones." data-en="Admin panel for sales, users, and returns.">Panel administrativo con ventas, usuarios y devoluciones.</span></li>
+          </ul>
+          <ul class="tech-tags" aria-label="Tecnologías de ElectroStore">{projectStack.map(technology => <li>{technology}</li>)}</ul>
+          <div class="project-links"><a class="button button-primary" href="https://electrostore-bpvc.onrender.com" target="_blank" rel="noopener noreferrer"><span data-es="Ver proyecto" data-en="View project">Ver proyecto</span><Icon name="external" /></a><a class="button button-secondary" href="https://github.com/RubenIbaceta/ecomerce1" target="_blank" rel="noopener noreferrer"><Icon name="github" /><span data-es="Ver código" data-en="View code">Ver código</span></a></div>
+          <p class="project-note"><span class="mono">Render + Neon</span><span data-es="Demo de portafolio: pagos y despachos de prueba. El registro público y la recuperación de contraseña requieren configurar correo. La primera visita puede tardar mientras el servidor gratuito inicia." data-en="Portfolio demo: test payments and simulated shipping. Public registration and password recovery require email setup. The first visit may take a moment while the free server wakes up.">Demo de portafolio: pagos y despachos de prueba. El registro público y la recuperación de contraseña requieren configurar correo. La primera visita puede tardar mientras el servidor gratuito inicia.</span></p>
+        </div>
+      </article>
+      <a class="more-work" href="https://github.com/RubenIbaceta" target="_blank" rel="noopener noreferrer"><span data-es="Más código, experimentos y aprendizaje en mi GitHub" data-en="More code, experiments, and learning on my GitHub">Más código, experimentos y aprendizaje en mi GitHub</span><Icon name="external" /></a>
+    </section>
 
-              <!-- Perfil con Avatar y Máquina de Escribir -->
-              <div class="flex items-center gap-4">
-                <div class="relative group">
-                  <div class="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-rose-500 to-red-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
-                  <img 
-                    src="/icono.jpg" 
-                    alt="Rubén Ibaceta Cortés" 
-                    class="relative w-16 h-16 rounded-xl object-cover border border-red-500/60 shadow-lg shadow-red-900/40"
-                  />
-                </div>
-
-                <div>
-                  <h1 class="text-xl font-bold tracking-tight">Rubén Ibaceta</h1>
-                  <p class="text-sm text-neutral-400 font-mono flex items-center h-6">
-                    <span id="typewriter"></span><span class="animate-ping text-red-500 font-bold ml-0.5">|</span>
-                  </p>
-                  <p class="text-xs text-neutral-500 mt-0.5">Valparaíso, Chile</p>
-                </div>
-              </div>
-
-              <!-- Descripción -->
-              <p class="text-sm text-neutral-300 leading-relaxed text-pretty" data-es="Estudiante de Ingeniería en Informática enfocado en desarrollo Backend. Especializado en diseñar arquitecturas robustas con Node.js, Express y Django, e integrar servicios de procesamiento y almacenamiento Cloud en AWS." data-en="Computer Engineering student focused on backend development. Specialized in designing robust architectures with Node.js, Express, and Django, and integrating AWS cloud compute and storage services.">
-                Computer Engineering student focused on backend development. Specialized in designing robust architectures with Node.js, Express, and Django, and integrating AWS cloud compute and storage services.
-              </p>
-
-              <!-- Botones de Redes & Formulario de Contacto -->
-              <div class="space-y-3">
-                <p class="text-xs font-mono text-white uppercase tracking-wider" data-es="// Contacto & Redes" data-en="// Contact & Socials">// Contact & Socials</p>
-                
-                <div class="grid grid-cols-1 gap-2.5">
-                  <!-- LinkedIn -->
-                  <a 
-                    href="https://linkedin.com/in/rubenibacetacortes" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="flex items-center justify-between p-3 border border-neutral-800 rounded-xl bg-neutral-900/40 hover:bg-neutral-800 hover:border-neutral-700 transition-all group"
-                  >
-                    <div class="flex items-center gap-3">
-                      <img src="https://svgl.app/library/linkedin.svg" class="w-4 h-4" alt="LinkedIn" />
-                      <span class="text-xs font-mono text-neutral-300 group-hover:text-white transition-colors">LinkedIn</span>
-                    </div>
-                    <span class="text-xs text-neutral-600 group-hover:text-neutral-400 font-mono" data-es="perfil ↗" data-en="profile ↗">profile ↗</span>
-                  </a>
-
-                  <!-- GitHub -->
-                  <a 
-                    href="https://github.com/rubenibaceta" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="flex items-center justify-between p-3 border border-neutral-800 rounded-xl bg-neutral-900/40 hover:bg-neutral-800 hover:border-neutral-700 transition-all group"
-                  >
-                    <div class="flex items-center gap-3">
-                      <img src="https://cdn.simpleicons.org/github/FFFFFF" class="w-4 h-4" alt="GitHub" />
-                      <span class="text-xs font-mono text-neutral-300 group-hover:text-white transition-colors">GitHub</span>
-                    </div>
-                    <span class="text-xs text-neutral-600 group-hover:text-neutral-400 font-mono" data-es="código ↗" data-en="code ↗">code ↗</span>
-                  </a>
-                </div>
-
-                <!-- Formulario Web3Forms -->
-                <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-2.5 pt-2">
-                  <input type="hidden" name="access_key" value="6cc73517-280f-4980-8d80-682ee0bd43b0" />
-                  
-                  <input 
-                    type="email" 
-                    name="email" 
-                    required 
-                    placeholder="your-email@example.com"
-                    data-es-ph="tu-correo@ejemplo.com"
-                    data-en-ph="your-email@example.com"
-                    class="w-full px-3 py-2 bg-neutral-900/60 border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-600 font-mono transition-colors"
-                  />
-                  
-                  <textarea 
-                    name="message" 
-                    required 
-                    rows="3" 
-                    placeholder="Write your message..."
-                    data-es-ph="Escribe tu mensaje..."
-                    data-en-ph="Write your message..."
-                    class="w-full px-3 py-2 bg-neutral-900/60 border border-neutral-800 rounded-xl text-xs text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-600 font-mono resize-none transition-colors"
-                  ></textarea>
-
-                  <button 
-                    type="submit" 
-                    class="w-full py-2 bg-neutral-100 hover:bg-white text-black text-xs font-mono font-bold rounded-xl transition-all cursor-pointer active:scale-95"
-                    data-es="Enviar Mensaje"
-                    data-en="Send Message "
-                  >
-                    Send Message
-                  </button>
-                </form>
-
-              </div>
-
-            </div>
-
-            <!-- Footer Integrado (Fijo en la parte inferior) -->
-            <div class="pt-6 mt-6 border-t border-neutral-800/60 text-center">
-              <p class="text-[11px] font-mono text-neutral-600">
-                © 2026 Rubén Ibaceta<br/>
-                <span class="text-[10px] text-neutral-700" data-es="Construido con Astro & Tailwind" data-en="Built with Astro & Tailwind">Built with Astro & Tailwind</span>
-              </p>
-            </div>
-
-          </div>
-        </aside>
-
-        <!-- ========================================== -->
-        <!-- COLUMNA DERECHA: PESTAÑAS                  -->
-        <!-- ========================================== -->
-        <section class="border border-neutral-800 rounded-2xl bg-black overflow-hidden flex flex-col h-full">
-          
-          <!-- Pestañas de Navegación -->
-          <div class="flex border-b border-neutral-800 bg-black/50 text-xs font-mono overflow-x-auto">
-            <button data-tab="sobre-mi" class="tab-btn px-6 py-3.5 border-r border-neutral-800 text-white bg-neutral-900/50 flex items-center gap-2 hover:bg-neutral-900 transition-colors whitespace-nowrap" data-es="sobre_mi.md" data-en="about_me.md">
-              about_me.md
-            </button>
-            <button data-tab="proyectos" class="tab-btn px-6 py-3.5 border-r border-neutral-800 text-neutral-500 flex items-center gap-2 hover:bg-neutral-900 hover:text-white transition-colors whitespace-nowrap" data-es="proyectos.ts" data-en="projects.ts">
-              projects.ts
-            </button>
-          </div>
-
-          <!-- Contenedor principal de contenido -->
-          <div class="p-6 md:p-8 flex flex-col gap-8 flex-1">
-            
-            <!-- PESTAÑA 1: SOBRE MÍ -->
-            <div id="sobre-mi" class="tab-content block space-y-8">
-              
-              <!-- Experiencia -->
-              <div>
-                <h2 class="text-sm font-mono text-neutral-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                  <span class="text-white">//</span> <span data-es="Experiencia Profesional" data-en="Work Experience">Work Experience</span>
-                </h2>
-                <div class="space-y-4">
-                  <div class="border border-neutral-800 rounded-xl p-4 md:p-5 hover:border-neutral-600 transition-colors">
-                    <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
-                      <div>
-                        <h3 class="text-base font-bold text-white" data-es="Soporte Técnico — INACAP" data-en="IT Support Specialist — INACAP">IT Support Specialist — INACAP</h3>
-                        <p class="text-xs text-neutral-400 font-mono" data-es="Práctica Profesional" data-en="Professional Internship">Professional Internship</p>
-                      </div>
-                      <span class="text-xs font-mono text-neutral-500 bg-neutral-900 border border-neutral-800 px-2.5 py-1 rounded">Mar 2025 - Jun 2025</span>
-                    </div>
-                    <ul class="text-xs md:text-sm text-neutral-300 space-y-1.5 list-none pl-0">
-                      <li class="flex gap-2"><span class="text-neutral-600">›</span> <span data-es="Soporte integral a 50+ usuarios con reducción del 20% en tiempos de resolución" data-en="Provided comprehensive IT support for 50+ users, reducing resolution time by 20%">Provided comprehensive IT support for 50+ users, reducing resolution time by 20%</span></li>
-                      <li class="flex gap-2"><span class="text-neutral-600">›</span> <span data-es="Mantenimiento y configuración de Windows/Linux en 30+ estaciones de trabajo" data-en="Maintained and configured Windows/Linux systems across 30+ workstations">Maintained and configured Windows/Linux systems across 30+ workstations</span></li>
-                      <li class="flex gap-2"><span class="text-neutral-600">›</span> <span data-es="Diagnóstico, reparación de hardware y mantenimiento preventivo" data-en="Performed hardware diagnostics, component repairs, and preventive maintenance">Performed hardware diagnostics, component repairs, and preventive maintenance</span></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Educación -->
-              <div>
-                <h2 class="text-sm font-mono text-neutral-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                  <span class="text-white">//</span> <span data-es="Educación" data-en="Education">Education</span>
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div class="border border-neutral-800 rounded-xl p-4 border-l-2 border-l-white bg-neutral-900/30">
-                    <h3 class="text-sm font-bold text-white" data-es="Ingeniería en Informática" data-en="B.S. in Computer Software Engineering">B.S. in Computer Software Engineering</h3>
-                    <p class="text-xs text-neutral-400 mt-0.5">INACAP | Valparaíso</p>
-                    <span class="inline-block text-[10px] font-mono text-neutral-400 bg-neutral-800 px-2 py-0.5 rounded mt-2" data-es="Mar 2026 - Actualidad" data-en="Mar 2026 - Present">Mar 2026 - Present</span>
-                  </div>
-                  <div class="border border-neutral-800 rounded-xl p-4">
-                    <h3 class="text-sm font-bold text-neutral-200" data-es="Técnico Analista Programador" data-en="Associate Degree in Systems Analysis & Development">Associate Degree in Systems Analysis & Development</h3>
-                    <p class="text-xs text-neutral-400 mt-0.5">CFT INACAP | Valparaíso</p>
-                    <span class="inline-block text-[10px] font-mono text-neutral-500 bg-neutral-900 px-2 py-0.5 rounded mt-2" data-es="Graduado: Jun 2025" data-en="Graduated: Jun 2025">Graduated: Jun 2025</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Habilidades Técnicas -->
-              <div>
-                <h2 class="text-sm font-mono text-neutral-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-                  <span class="text-white">//</span> <span data-es="Habilidades Técnicas" data-en="Technical Skills">Technical Skills</span>
-                </h2>
-                
-                <div class="space-y-4">
-                  <!-- Backend -->
-                  <div>
-                    <p class="text-xs text-neutral-500 font-mono mb-2" data-es="Backend & Bases de Datos:" data-en="Backend & Databases:">Backend & Databases:</p>
-                    <div class="flex flex-wrap gap-2">
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/python/3776AB" class="w-4 h-4" alt="Python" /> Python</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" class="w-4 h-4" alt="Node.js" /> Node.js</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/express/FFFFFF" class="w-4 h-4" alt="Express.js" /> Express.js</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/django/2BA977" class="w-4 h-4" alt="Django" /> Django</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/postgresql/4169E1" class="w-4 h-4" alt="PostgreSQL" /> PostgreSQL</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/mysql/4479A1" class="w-4 h-4" alt="MySQL" /> MySQL</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/mongodb/47A248" class="w-4 h-4" alt="MongoDB" /> MongoDB</span>
-                    </div>
-                  </div>
-
-                  <!-- Frontend -->
-                  <div>
-                    <p class="text-xs text-neutral-500 font-mono mb-2">Frontend:</p>
-                    <div class="flex flex-wrap gap-2">
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/react/61DAFB" class="w-4 h-4" alt="React" /> React</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" class="w-4 h-4 rounded-sm" alt="JavaScript" /> JavaScript</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/typescript/3178C6" class="w-4 h-4 rounded-sm" alt="TypeScript" /> TypeScript</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="w-4 h-4" alt="Tailwind CSS" /> Tailwind CSS</span>
-                    </div>
-                  </div>
-
-                  <!-- Cloud & Tools -->
-                  <div>
-                    <p class="text-xs text-neutral-500 font-mono mb-2" data-es="Sistemas & Cloud:" data-en="Systems & Cloud:">Systems & Cloud:</p>
-                    <div class="flex flex-wrap gap-2">
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2">
-                        <svg class="h-3.5 w-auto" viewBox="0 0 304 182" xml:space="preserve"><path fill="#ffffff" d="m86 66 2 9c0 3 1 5 3 8v2l-1 3-7 4-2 1-3-1-4-5-3-6c-8 9-18 14-29 14-9 0-16-3-20-8-5-4-8-11-8-19s3-15 9-20c6-6 14-8 25-8a79 79 0 0 1 22 3v-7c0-8-2-13-5-16-3-4-8-5-16-5l-11 1a80 80 0 0 0-14 5h-2c-1 0-2-1-2-3v-5l1-3c0-1 1-2 3-2l12-5 16-2c12 0 20 3 26 8 5 6 8 14 8 25v32zM46 82l10-2c4-1 7-4 10-7l3-6 1-9v-4a84 84 0 0 0-19-2c-6 0-11 1-15 4-3 2-4 6-4 11s1 8 3 11c3 2 6 4 11 4zm80 10-4-1-2-3-23-78-1-4 2-2h10l4 1 2 4 17 66 15-66 2-4 4-1h8l4 1 2 4 16 67 17-67 2-4 4-1h9c2 0 3 1 3 2v2l-1 2-24 78-2 4-4 1h-9l-4-1-1-4-16-65-15 64-2 4-4 1h-9zm129 3a66 66 0 0 1-27-6l-3-3-1-2v-5c0-2 1-3 2-3h2l3 1a54 54 0 0 0 23 5c6 0 11-2 14-4 4-2 5-5 5-9l-2-7-10-5-15-5c-7-2-13-6-16-10a24 24 0 0 1 5-34l10-5a44 44 0 0 1 20-2 110 110 0 0 1 12 3l4 2 3 2 1 4v4c0 3-1 4-2 4l-4-2c-6-2-12-3-19-3-6 0-11 0-14 2s-4 5-4 9c0 3 1 5 3 7s5 4 11 6l14 4c7 3 12 6 15 10s5 9 5 14l-3 12-7 8c-3 3-7 5-11 6l-14 2z"/><path fill="#f90" d="M274 144A220 220 0 0 1 4 124c-4-3-1-6 2-4a300 300 0 0 0 263 16c5-2 10 4 5 8z"/><path fill="#f90" d="M287 128c-4-5-28-3-38-1-4 0-4-3-1-5 19-13 50-9 53-5 4 5-1 36-18 51-3 2-6 1-5-2 5-10 13-33 9-38z"/></svg>
-                        <span>AWS (EC2)</span>
-                      </span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/linux/FCC624" class="w-4 h-4" alt="Linux" /> Linux</span>
-                      <span class="border border-neutral-800 px-3 py-1.5 rounded-lg text-xs font-mono bg-neutral-900/50 flex items-center gap-2"><img src="https://cdn.simpleicons.org/git/F05032" class="w-4 h-4" alt="Git" /> Git / GitHub</span>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-            <!-- PESTAÑA 2: PROYECTOS -->
-            <div id="proyectos" class="tab-content hidden space-y-6">
-              
-              <div class="border border-neutral-800 rounded-xl p-6 bg-neutral-900/20 hover:border-neutral-600 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] transition-all duration-300">
-                <div class="flex justify-between items-start mb-3">
-                  <h3 class="text-lg font-bold text-white" data-es="Plataforma E-commerce Full-Stack" data-en="Full-Stack E-commerce Platform">Full-Stack E-commerce Platform</h3>
-                  <span class="text-xs font-mono bg-neutral-800 text-neutral-300 px-2.5 py-1 rounded">AWS Cloud</span>
-                </div>
-                <p class="text-sm text-neutral-300 mb-4" data-es="Plataforma de comercio electrónico con autenticación de usuarios, gestión de pedidos e integración de pagos con PayPal. Desplegado en AWS EC2 con Git." data-en="E-commerce platform featuring user authentication, order management, and PayPal payment integration. Deployed on AWS EC2 with Git.">
-                  E-commerce platform featuring user authentication, order management, and PayPal payment integration. Deployed on AWS EC2 with Git.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/python/3776AB" class="w-3.5 h-3.5" /> Python</span>
-                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/django/2BA977" class="w-3.5 h-3.5" /> Django</span>
-                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/mysql/4479A1" class="w-3.5 h-3.5" /> MySQL</span>
-                  <span class="text-xs font-mono border border-neutral-800 px-2 py-0.5 rounded text-neutral-400 flex items-center gap-1.5"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" class="w-3.5 h-3.5" /> Bootstrap</span>
-                </div>
-              </div>
-
-              <!-- Card proyectos futuros -->
-              <div class="border border-neutral-800 border-dashed rounded-xl p-8 text-center">
-                <p class="text-neutral-400 font-mono text-sm mb-1" data-es="⚡ Próximos proyectos" data-en="⚡ Upcoming projects">⚡ Upcoming projects</p>
-                <p class="text-xs text-neutral-600" data-es="Construyendo nuevas aplicaciones en Node.js, Express y React..." data-en="Building new applications with Node.js, Express, and React...">Building new applications with Node.js, Express, and React...</p>
-              </div>
-
-            </div>
-
-          </div>
-        </section>
-
+    <section class="shell section-block about-section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="section-heading"><div><p class="section-number mono" data-es="02 — Un poco sobre mí" data-en="02 — A little about me">02 — Un poco sobre mí</p><h2 id="about-title" data-es="Curiosidad por cómo funciona." data-en="Curious about how it works.">Curiosidad por cómo funciona.</h2></div></div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <div class="profile-line"><img src="/icono.jpg" alt="Avatar de Rubén Ibaceta" data-es-alt="Avatar de Rubén Ibaceta" data-en-alt="Rubén Ibaceta's avatar" width="64" height="64" loading="lazy" /><div><strong>Rubén Ibaceta Cortés</strong><p class="mono" data-es="Analista Programador · Estudiante de Ingeniería" data-en="Systems Analyst · Engineering student">Analista Programador · Estudiante de Ingeniería</p></div></div>
+          <p data-es="Soy estudiante de Ingeniería en Informática en INACAP y Técnico Analista Programador. Mi enfoque está en el desarrollo backend: entender los datos, diseñar la lógica y conectar los servicios que hacen funcionar una aplicación." data-en="I'm a Computer Engineering student at INACAP with an associate degree in Systems Analysis and Development. My focus is backend development: understanding data, designing logic, and connecting the services that make an application work.">Soy estudiante de Ingeniería en Informática en INACAP y Técnico Analista Programador. Mi enfoque está en el desarrollo backend: entender los datos, diseñar la lógica y conectar los servicios que hacen funcionar una aplicación.</p>
+          <p data-es="Trabajo con Node.js, Express y Django, y complemento ese enfoque construyendo interfaces con React y explorando despliegues en la nube. Me interesa seguir aprendiendo en un equipo donde pueda aportar y desarrollar soluciones útiles." data-en="I work with Node.js, Express, and Django, and complement that focus by building React interfaces and exploring cloud deployment. I'm interested in learning within a team where I can contribute and develop useful solutions.">Trabajo con Node.js, Express y Django, y complemento ese enfoque construyendo interfaces con React y explorando despliegues en la nube. Me interesa seguir aprendiendo en un equipo donde pueda aportar y desarrollar soluciones útiles.</p>
+          <a class="text-link" href="https://linkedin.com/in/rubenibacetacortes" target="_blank" rel="noopener noreferrer"><span data-es="Conectemos en LinkedIn" data-en="Let's connect on LinkedIn">Conectemos en LinkedIn</span><Icon name="external" /></a>
+        </div>
+        <div class="career">
+          <div class="career-heading"><span class="mini-label mono" data-es="Experiencia" data-en="Experience">Experiencia</span><Icon name="terminal" /></div>
+          <div class="career-item"><span class="career-date mono">MAR — JUN 2025</span><h3 data-es="Soporte Técnico" data-en="IT Support Specialist">Soporte Técnico</h3><p class="career-company" data-es="INACAP · Práctica profesional" data-en="INACAP · Professional internship">INACAP · Práctica profesional</p><p class="career-detail" data-es="Soporte a más de 50 usuarios, configuración de Windows y Linux en más de 30 estaciones, diagnóstico y mantenimiento de hardware. Reducción del 20% en tiempos de resolución." data-en="Supported 50+ users, configured Windows and Linux on 30+ workstations, and performed hardware diagnostics and maintenance. Reduced resolution time by 20%.">Soporte a más de 50 usuarios, configuración de Windows y Linux en más de 30 estaciones, diagnóstico y mantenimiento de hardware. Reducción del 20% en tiempos de resolución.</p></div>
+          <div class="career-heading education-heading"><span class="mini-label mono" data-es="Formación" data-en="Education">Formación</span><Icon name="code" /></div>
+          <div class="career-item"><span class="career-date mono" data-es="2026 — ACTUALIDAD" data-en="2026 — PRESENT">2026 — ACTUALIDAD</span><h3 data-es="Ingeniería en Informática" data-en="Computer Engineering">Ingeniería en Informática</h3><p class="career-company">INACAP · Valparaíso</p></div>
+          <div class="career-item"><span class="career-date mono" data-es="TITULADO · JUN 2025" data-en="GRADUATED · JUN 2025">TITULADO · JUN 2025</span><h3 data-es="Técnico Analista Programador" data-en="Systems Analysis & Development">Técnico Analista Programador</h3><p class="career-company">CFT INACAP · Valparaíso</p></div>
+        </div>
       </div>
-    </main>
-  </div>
+    </section>
+
+    <section class="shell section-block" aria-labelledby="stack-title">
+      <div class="section-heading"><div><p class="section-number mono" data-es="03 — Herramientas de trabajo" data-en="03 — My toolkit">03 — Herramientas de trabajo</p><h2 id="stack-title" data-es="Mi stack, en contexto." data-en="My stack, in context.">Mi stack, en contexto.</h2></div></div>
+      <div class="stack-list">{stack.map((group, index) => <div class="stack-row"><span class="stack-index mono">0{index + 1}</span><h3>{group.label}</h3><ul>{group.items.map(item => <li><SkillIcon name={item} /><span>{item}</span></li>)}</ul></div>)}</div>
+    </section>
+
+    <section class="shell section-block contact-section" id="contacto" aria-labelledby="contact-title">
+      <div class="contact-copy"><p class="section-number mono" data-es="04 — Siguiente conversación" data-en="04 — The next conversation">04 — Siguiente conversación</p><h2 id="contact-title" data-es="Hablemos de lo que viene." data-en="Let's talk about what's next.">Hablemos de lo que viene.</h2><p data-es="Estoy abierto a oportunidades para desarrollar, aprender y aportar. Si tienes una propuesta o quieres conversar sobre un proyecto, escríbeme." data-en="I'm open to opportunities to build, learn, and contribute. If you have an opportunity or want to talk about a project, get in touch.">Estoy abierto a oportunidades para desarrollar, aprender y aportar. Si tienes una propuesta o quieres conversar sobre un proyecto, escríbeme.</p><div class="contact-socials"><a class="text-link" href="https://linkedin.com/in/rubenibacetacortes" target="_blank" rel="noopener noreferrer"><Icon name="linkedin" />LinkedIn<Icon name="external" /></a><a class="text-link" href="https://github.com/RubenIbaceta" target="_blank" rel="noopener noreferrer"><Icon name="github" />GitHub<Icon name="external" /></a></div></div>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value={contactKey} />
+        <input type="hidden" name="subject" value="Nuevo contacto desde el portafolio de Rubén Ibaceta" />
+        <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" aria-hidden="true" />
+        <label for="contact-email" data-es="Tu correo" data-en="Your email">Tu correo</label>
+        <input id="contact-email" type="email" name="email" autocomplete="email" required maxlength="254" placeholder="tu-correo@ejemplo.com" data-es-ph="tu-correo@ejemplo.com" data-en-ph="your-email@example.com" />
+        <label for="contact-message" data-es="¿Qué tienes en mente?" data-en="What's on your mind?">¿Qué tienes en mente?</label>
+        <textarea id="contact-message" name="message" required minlength="10" maxlength="5000" rows="4" placeholder="Cuéntame sobre tu propuesta…" data-es-ph="Cuéntame sobre tu propuesta…" data-en-ph="Tell me about your idea…"></textarea>
+        <button class="button button-primary" type="submit"><span data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</span><Icon name="arrow-right" /></button>
+        <p class="form-note" data-es="Tu mensaje se envía a través de Web3Forms." data-en="Your message is sent through Web3Forms.">Tu mensaje se envía a través de Web3Forms.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="shell site-footer"><a class="wordmark" href="#inicio" aria-label="Volver al inicio" data-es-label="Volver al inicio" data-en-label="Back to top">ri<span>.</span></a><p>© {new Date().getFullYear()} Rubén Ibaceta</p><span class="mono" data-es="Hecho con Astro & Tailwind" data-en="Built with Astro & Tailwind">Hecho con Astro & Tailwind</span><a class="back-top" href="#inicio"><span data-es="Volver arriba" data-en="Back to top">Volver arriba</span><Icon name="arrow-up" /></a></footer>
 </Layout>
 
-<script is:inline>
-  // Detectar idioma del navegador
-  const browserLang = navigator.language || navigator.userLanguage;
-  let currentLang = browserLang.startsWith('es') ? 'es' : 'en';
+<script>
+  type Language = 'es' | 'en';
+  const languageButtons = document.querySelectorAll<HTMLButtonElement>('[data-language]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const greeting = document.getElementById('typed-greeting');
+  const firstName = document.getElementById('typed-first-name');
+  const lastName = document.getElementById('typed-last-name');
+  const role = document.getElementById('typed-role');
+  let typingTimer: ReturnType<typeof setTimeout> | undefined;
+  let activeLanguage: Language = 'es';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // --- LÓGICA DE IDIOMA ---
-    const langBtn = document.getElementById('lang-toggle');
-    const langFlag = document.getElementById('lang-flag');
-    const langText = document.getElementById('lang-text');
+  function startTyping(language: Language) {
+    clearTimeout(typingTimer);
+    if (!greeting || !firstName || !lastName || !role) return;
+    const greetingText = language === 'es' ? 'Hola, soy' : "Hi, I'm";
+    const roles = language === 'es'
+      ? ['Desarrollador backend', 'Estudiante de Ingeniería en Informática', 'Analista Programador']
+      : ['Backend Developer', 'Computer Engineering Student', 'Systems Analyst'];
+    if (reducedMotion.matches) {
+      greeting.textContent = greetingText;
+      firstName.textContent = 'Rubén';
+      lastName.textContent = 'Ibaceta';
+      role.textContent = roles[0];
+      return;
+    }
+    greeting.textContent = '';
+    firstName.textContent = '';
+    lastName.textContent = '';
+    role.textContent = '';
 
-    const flags = {
-      es: { url: 'https://flagcdn.com/w40/es.png', alt: 'Spain Flag', label: 'ES' },
-      en: { url: 'https://flagcdn.com/w40/us.png', alt: 'US Flag', label: 'EN' }
-    };
-
-    function updateLanguage(lang) {
-      if (langFlag) {
-        langFlag.src = flags[lang].url;
-        langFlag.alt = flags[lang].alt;
+    function typeText(element: HTMLElement, text: string, done: () => void) {
+      let position = 0;
+      function nextCharacter() {
+        element.textContent = text.slice(0, ++position);
+        typingTimer = setTimeout(position < text.length ? nextCharacter : done, position < text.length ? 65 : 220);
       }
-      if (langText) {
-        langText.textContent = flags[lang].label;
-      }
-
-      // Traducir textos
-      document.querySelectorAll('[data-es][data-en]').forEach(el => {
-        el.textContent = el.getAttribute(`data-${lang}`);
-      });
-
-      // Traducir placeholders
-      document.querySelectorAll('[data-es-ph][data-en-ph]').forEach(el => {
-        el.placeholder = el.getAttribute(`data-${lang}-ph`);
-      });
+      nextCharacter();
     }
 
-    if (currentLang === 'es') {
-      updateLanguage('es');
+    let roleIndex = 0;
+    function cycleRole() {
+      if (!role) return;
+      typeText(role, roles[roleIndex]!, () => {
+        typingTimer = setTimeout(eraseRole, 2600);
+      });
     }
-
-    langBtn?.addEventListener('click', () => {
-      currentLang = currentLang === 'en' ? 'es' : 'en';
-      updateLanguage(currentLang);
-    });
-
-    // --- LÓGICA DE PESTAÑAS ---
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        tabBtns.forEach(b => {
-          b.classList.remove('text-white', 'bg-neutral-900/50');
-          b.classList.add('text-neutral-500');
-        });
-
-        tabContents.forEach(c => {
-          c.classList.remove('block');
-          c.classList.add('hidden');
-        });
-
-        btn.classList.remove('text-neutral-500');
-        btn.classList.add('text-white', 'bg-neutral-900/50');
-
-        const targetId = btn.getAttribute('data-tab');
-        const targetContent = document.getElementById(targetId);
-        if (targetContent) {
-          targetContent.classList.remove('hidden');
-          targetContent.classList.add('block');
-        }
+    function eraseRole() {
+      if (!role) return;
+      role.textContent = (role.textContent ?? '').slice(0, -1);
+      if (role.textContent) typingTimer = setTimeout(eraseRole, 32);
+      else {
+        roleIndex = (roleIndex + 1) % roles.length;
+        typingTimer = setTimeout(cycleRole, 300);
+      }
+    }
+    typeText(greeting, greetingText, () => {
+      typeText(firstName, 'Rubén', () => {
+        typeText(lastName, 'Ibaceta', cycleRole);
       });
     });
+  }
 
-    // --- LÓGICA MÁQUINA DE ESCRIBIR ---
-    const wordsEN = ["Systems Analyst", "Backend Developer", "Software Engineer"];
-    const wordsES = ["Analista Programador", "Desarrollador Backend", "Ingeniero en Informática"];
-
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-      const typewriterEl = document.getElementById('typewriter');
-      if (!typewriterEl) return;
-
-      const currentWords = currentLang === 'es' ? wordsES : wordsEN;
-      const currentWord = currentWords[wordIndex % currentWords.length];
-
-      if (isDeleting) {
-        typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let typeSpeed = isDeleting ? 40 : 80;
-
-      if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        wordIndex++;
-        typeSpeed = 400;
-      }
-
-      setTimeout(type, typeSpeed);
-    }
-
-    type();
+  function setLanguage(language: Language) {
+    activeLanguage = language;
+    document.documentElement.lang = language;
+    document.querySelectorAll<HTMLElement>('[data-es][data-en]').forEach(element => {
+      element.textContent = element.dataset[language] ?? '';
+    });
+    document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('[data-es-ph]').forEach(element => {
+      element.placeholder = element.getAttribute(`data-${language}-ph`) ?? '';
+    });
+    document.querySelectorAll<HTMLElement>('[data-es-label]').forEach(element => {
+      element.setAttribute('aria-label', element.getAttribute(`data-${language}-label`) ?? '');
+    });
+    document.querySelectorAll<HTMLImageElement>('[data-es-alt]').forEach(element => {
+      element.alt = element.getAttribute(`data-${language}-alt`) ?? '';
+    });
+    languageButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === language)));
+    document.title = language === 'es' ? 'Rubén Ibaceta | Desarrollo Backend & Full Stack' : 'Rubén Ibaceta | Backend & Full-Stack Developer';
+    startTyping(language);
+    try { localStorage.setItem('portfolio-language', language); } catch { /* Funciona también sin almacenamiento. */ }
+  }
+  let initialLanguage: Language = navigator.language.toLowerCase().startsWith('es') ? 'es' : 'en';
+  try {
+    const saved = localStorage.getItem('portfolio-language');
+    if (saved === 'es' || saved === 'en') initialLanguage = saved;
+  } catch { /* Mantiene el idioma del navegador. */ }
+  setLanguage(initialLanguage);
+  languageButtons.forEach(button => button.addEventListener('click', () => {
+    setLanguage(button.dataset.language === 'en' ? 'en' : 'es');
+  }));
+  reducedMotion.addEventListener('change', () => startTyping(activeLanguage));
+  window.addEventListener('pagehide', () => clearTimeout(typingTimer));
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) startTyping(activeLanguage);
   });
 </script>

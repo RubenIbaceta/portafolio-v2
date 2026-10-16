@@ -1,8 +1,10 @@
-# Dev Portfolio — Rubén Ibaceta
+# Portafolio v2 — Rubén Ibaceta
 
-Un portafolio web bilingüe y ultrarrápido con estética simple.
+Portafolio personal de Rubén Ibaceta, Analista Programador y estudiante de Ingeniería en Informática, con enfoque backend y full stack.
 
-**Demo en vivo:** [portafolio-v1-mu.vercel.app](https://portafolio-v1-mu.vercel.app/)
+**Proyecto destacado:** [ElectroStore — demo publicada](https://electrostore-bpvc.onrender.com) · [Código de ElectroStore](https://github.com/RubenIbaceta/ecomerce1).
+
+**Repositorio del portafolio:** [RubenIbaceta/portafolio-v2](https://github.com/RubenIbaceta/portafolio-v2).
 
 ## Tecnologías Utilizadas
 
@@ -17,9 +19,28 @@ Un portafolio web bilingüe y ultrarrápido con estética simple.
 
 * **Carga Ultra Rápida:** Arquitectura de contenido estático (SSG) generada por Astro sin sobrecarga de JavaScript.
 * **Soporte Bilingüe (ES/EN):** Sistema dinámico de cambio de idioma en tiempo real para todos los textos, títulos y placeholders del sitio.
-* **Diseño:** Interfaz limpia organizada con sistema de pestañas interactivas (`about_me.md`, `projects.ts`).
+* **Diseño:** Fondo oscuro y acentos rojos; navegación por secciones de proyectos, perfil, experiencia, formación, stack y contacto.
+* **Presentación:** Saludo con efecto de máquina de escribir y rotación de roles, con soporte para reducción de movimiento.
+* **Tecnologías:** Iconos SVG incluidos en la página con Simple Icons; no requieren servicios externos de imágenes.
 * **Formulario de Contacto:** Integración directa a correo electrónico con web3form.
 * **Layout Totalmente Adaptable:** Diseño 100% *Responsive* con soporte para dispositivos móviles, tablets y desktop.
+
+## Desarrollo local
+
+```bash
+npm ci
+npm run dev
+```
+
+Abre `http://localhost:4321`. Para compilar: `npm run build`. La salida estática se genera en `dist`.
+
+## Publicación en Vercel
+
+Importa este repositorio en un proyecto nuevo de Vercel. Utiliza el preset **Astro**, directorio raíz `./`, comando de compilación `npm run build` y salida `dist`. No requiere base de datos ni servidor adicional.
+
+El sitio usa el dominio de producción proporcionado por Vercel para las URLs canónicas y el sitemap. Puedes establecer `PUBLIC_SITE_URL` con la dirección HTTPS definitiva si utilizas otro dominio. `PUBLIC_WEB3FORMS_KEY` permite reemplazar la clave pública del formulario existente. Ambas variables son opcionales; `.env.example` documenta sus nombres.
+
+ElectroStore funciona de forma independiente en Render y Neon. Sus pagos y despachos son de prueba; el registro público y la recuperación requieren configurar correo. El primer acceso puede demorar al iniciar el servidor gratuito.
 
 
 ## Créditos e Inspiración
