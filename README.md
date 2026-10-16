@@ -33,16 +33,3 @@ npm run dev
 ```
 
 Abre `http://localhost:4321`. Para compilar: `npm run build`. La salida estática se genera en `dist`.
-
-## Publicación en Vercel
-
-Importa este repositorio en un proyecto nuevo de Vercel. Utiliza el preset **Astro**, directorio raíz `./`, comando de compilación `npm run build` y salida `dist`. No requiere base de datos ni servidor adicional.
-
-El sitio usa el dominio de producción proporcionado por Vercel para las URLs canónicas y el sitemap. Puedes establecer `PUBLIC_SITE_URL` con la dirección HTTPS definitiva si utilizas otro dominio. `PUBLIC_WEB3FORMS_KEY` permite reemplazar la clave pública del formulario existente. Ambas variables son opcionales; `.env.example` documenta sus nombres.
-
-ElectroStore funciona de forma independiente en Render y Neon. Sus pagos y despachos son de prueba; el registro público y la recuperación requieren configurar correo. El primer acceso puede demorar al iniciar el servidor gratuito.
-
-
-## Créditos e Inspiración
-
-El diseño base y la estructura visual de este proyecto están inspirados en la plantilla **Astro Developer Portfolio Template** creada por **devi|dev|io**, sobre la cual se implementaron personalizaciones de estilos, lógica de traducción bilingüe.
